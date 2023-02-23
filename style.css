@@ -1,0 +1,109 @@
+body{
+    font-family: sans-serif;
+    background: #04001E;
+    color: white;
+}
+
+
+input[id="lista"]:checked ~ .project-actions [for="lista"], input[id="grid"]:checked ~ .project-actions [for="grid"]{
+    background: #1F1F3A;
+    
+}
+
+
+/* Version en lista */
+
+
+input[id="lista"]:checked ~ .project-list{
+    
+}
+
+input[id="lista"]:checked ~ .project-list .project{
+    display: grid;
+    grid-template-columns: auto 1fr 100px 100px;
+    gap: 1rem;
+    padding: 1rem;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: .5px solid rgba(242,242,242,0.51);
+}
+
+input[id="lista"]:checked ~ .project-list .project:hover{
+    background: #1f1f3a;
+    transform: scale(0.99);
+
+}
+
+input[id="lista"]:checked ~ .project-list .project img{
+    inline-size: 60px;
+    aspect-ratio: 1 /1;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+/* Version en grid */
+
+input[id="grid"]:checked ~ .project-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    gap: 1rem;
+}
+
+
+input[id="grid"]:checked ~ .project-list .project{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px auto auto;
+    gap: 1rem;
+    padding: 1rem;
+    background: #1f1f3a;
+    border-radius: 1rem;
+    cursor: pointer;
+
+}
+input[id="grid"]:checked ~ .project-list .project img{
+    inline-size: 100%;
+    block-size: 100%;
+        object-fit: cover;
+    grid-area: 1 / 1/ 1 / -1 ;
+}
+
+input[id="grid"]:checked ~ .project-list .project p{
+    grid-row: 2 / -1 ;
+}
+
+input[id="grid"]:checked ~ .project-list .project:hover{
+    background: #434364;
+    transform: scale(0.99);
+}
+
+
+
+
+
+
+
+
+/* Otros estilos */
+input{
+    display: none;  
+}
+
+label{
+    user-select: none;
+    cursor: pointer;
+    padding-block: 1rem;
+    padding-inline: 3rem;
+}
+
+
+.project-actions{
+    display: flex;
+    justify-content: flex-end;
+}
